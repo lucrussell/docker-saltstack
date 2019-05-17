@@ -1,14 +1,26 @@
-version: '2.2'
+version: '3'
 
 services: 
   salt-master:
     build:
       context: .
       dockerfile: Dockerfile.master
+    volumes:
+      - ./master-etc-salt/master:/etc/salt/master
+      - ./master-srv-salt/:/srv/salt
+    networks:
+      - backend
+
   salt-minion:
     build:
       context: .
       dockerfile: Dockerfile.minion
     depends_on:
       - salt-master
-    scale: 2
+    deploy:
+      replicas: 1
+    networks:
+      - backend
+
+networks:
+  backend:
