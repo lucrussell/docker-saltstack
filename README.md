@@ -22,19 +22,17 @@ From that command line you can run something like:
 
 and in the window where you started docker compose, you will see the log output of both the master sending the command and the minion receiving the command and replying.
 
-
 Note:
 The `compatibility` option allows this section in the docker-compose file:
 
     deploy:
         replicas: 1
 
-## Using
+## Using Salt States
 Two volumes are mapped in docker-comopse.yml:
 
 - `master-etc-salt`: this allows modifying the `master` config file. Restart the master if you change this
 - `master-srv-salt`: this allows editing the Salt state files
-
 
 
 ## Useful Commands
