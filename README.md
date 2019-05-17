@@ -29,11 +29,12 @@ The `compatibility` option allows this section in the docker-compose file:
         replicas: 1
 
 ## Using Salt States
-Two volumes are mapped in docker-comopse.yml:
+Two volumes are mapped in docker-compose.yml:
 
 - `master-etc-salt`: this allows modifying the `master` config file. Restart the master if you change this
 - `master-srv-salt`: this allows editing the Salt state files
 
+To use the Salt state files, edit the files in `master-srv-salt`, then use the usual Salt commands to apply those changes to minions.
 
 ## Useful Commands
 Commands starting with `salt` should be run on the Salt master.
